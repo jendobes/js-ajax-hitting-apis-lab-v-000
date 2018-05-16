@@ -42,22 +42,22 @@ function displayRepositories() {
 
 const rootURL = "https://api.github.com"
 
-// function displayRepositories() {
-//   const repos = JSON.parse(this.responseText)
-//   const repoList = "<ul>" + repos.map(repo => {
-//     const dataUsername = 'data-username="' + repo.owner.login + '"'
-//     const dataRepoName = 'data-repository="' + repo.name + '"'
-//     return(`
-//           <li>
-//             <h2>${repo.name}</h2>
-//             <a href="${repo.html_url}">${repo.html_url}</a><br>
-//             <a href="#" ${dataRepoName} ${dataUsername} onclick="getCommits(this)">Get Commits</a><br>
-//             <a href="#" ${dataRepoName} ${dataUsername} onclick="getBranches(this)">Get Branches</a></li>
-//           </li>`
-//           )
-//   }).join('') + "</ul>";
-//   document.getElementById("repositories").innerHTML = repoList
-// }
+function displayRepositories() {
+  const repos = JSON.parse(this.responseText)
+  const repoList = "<ul>" + repos.map(repo => {
+    const dataUsername = 'data-username="' + repo.owner.login + '"'
+    const dataRepoName = 'data-repository="' + repo.name + '"'
+    return(`
+          <li>
+            <h2>${repo.name}</h2>
+            <a href="${repo.html_url}">${repo.html_url}</a><br>
+            <a href="#" ${dataRepoName} ${dataUsername} onclick="getCommits(this)">Get Commits</a><br>
+            <a href="#" ${dataRepoName} ${dataUsername} onclick="getBranches(this)">Get Branches</a></li>
+          </li>`
+          )
+  }).join('') + "</ul>";
+  document.getElementById("repositories").innerHTML = repoList
+}
 function getCommits(el) {
   const repoName = el.dataset.repository
   const uri = rootURL + "/repos/" + el.dataset.username + "/" + repoName + "/commits"
