@@ -15,7 +15,7 @@ function displayRepositories() {
 
 function getCommits(el) {
   const repoName = el.dataset.repo
-  console.log(username)
+  console.log(el.dataset.username)
 }
 
 function displayCommits () {
