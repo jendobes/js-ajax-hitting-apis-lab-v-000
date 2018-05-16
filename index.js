@@ -1,4 +1,4 @@
-const username = document.getElementById("username").value
+username = document.getElementById("username").value
 
 function getRepositories() {
   const req = new XMLHttpRequest()
