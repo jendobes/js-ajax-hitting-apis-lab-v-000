@@ -16,7 +16,11 @@ function displayRepositories() {
 function getCommits(el) {
   const repoName = el.dataset.repo
   const username = document.getElementById("username").value
-  console.log(username)
+  const uri = `https://api.github.com/users/${username}/${repoName}/commits`
+  const req = new XMLHttpRequest()
+  req.addEventListener("load", displayCommits)
+  req.open("GET", uri)
+  req.send()
 }
 
 function displayCommits () {
